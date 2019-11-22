@@ -1,0 +1,9 @@
+﻿@model Shop.Models.Car
+
+    <div class="col-lg-4">
+        <img class="img-thumbnail" src="@Model.Img" alt="@Model.Name" />
+        <h2>Model : @Model.Name</h2>
+        <p>@Model.ShortDesc</p>
+        <p>Price : @Model.Price.ToString("c")</p>
+        <p><a class="btn btn-warning">Detailed</a></p>
+    </div>
