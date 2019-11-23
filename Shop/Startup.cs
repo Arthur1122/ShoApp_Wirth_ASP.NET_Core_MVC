@@ -11,6 +11,7 @@ using Shop.Data;
 using Shop.Data.Repository;
 using Shop.Interfaces.Models;
 using Shop.Mocks;
+using Shop.Models;
 
 namespace Shop
 {
@@ -29,7 +30,14 @@ namespace Shop
             services.AddDbContext<AppDbContext>();
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarsCategory, CategoryRepository>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopCarts.GetShopCart(sp));
+
             services.AddMvc();
+
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +46,7 @@ namespace Shop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseMvcWithDefaultRoute();
             using(var scope = app.ApplicationServices.CreateScope())
             {

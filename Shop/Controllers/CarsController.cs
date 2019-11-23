@@ -27,6 +27,7 @@ namespace Shop.Controllers
             obj.AllCars = _allCars.Cars;
             obj.CurrCategory = "Cars";
             return View(obj);
+            
         }
     }
 }
