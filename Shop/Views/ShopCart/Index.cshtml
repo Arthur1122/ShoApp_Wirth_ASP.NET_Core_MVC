@@ -8,5 +8,5 @@
             <b>Price : </b>@el.Car.Price.ToString("c")
         </div>
     }
-    <div class="btn btn-danger" asp-controller="Order">Pay</div>
+    <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Pay</a>
 </div>
