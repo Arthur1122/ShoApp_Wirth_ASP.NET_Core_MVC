@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shop.Data;
 using Shop.Data.Repository;
+using Shop.Interfaces;
 using Shop.Interfaces.Models;
 using Shop.Mocks;
 using Shop.Models;
@@ -30,6 +31,8 @@ namespace Shop
             services.AddDbContext<AppDbContext>();
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarsCategory, CategoryRepository>();
+
+            services.AddTransient<IAllOrders, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopCarts.GetShopCart(sp));
