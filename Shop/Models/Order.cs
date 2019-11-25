@@ -22,9 +22,9 @@ namespace Shop.Models
         [Required(ErrorMessage = "Name length at least 10 characters")]
         public string SurName { get; set; }
 
-        [Display(Name = "Enter Name")]
+        [Display(Name = "Enter Address")]
         [StringLength(7)]
-        [Required(ErrorMessage = "Name length at least 7 characters")]
+        [Required(ErrorMessage = "Address length at least 15 characters")]
         public string  Address { get; set; }
 
         [Display(Name = "Enter Phone number")]
